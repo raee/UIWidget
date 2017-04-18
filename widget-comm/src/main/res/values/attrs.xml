@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="RaePlaceHolderStyle" format="reference"/>
+
+    <declare-styleable name="RaePlaceHolderLayout">
+        <attr name="emptyText" format="string|reference"/>
+        <attr name="emptyTextColor" format="color"/>
+        <!--二级标题-->
+        <attr name="subText" format="string|reference"/>
+        <!--引导按钮文字-->
+        <attr name="retryText" format="string|reference"/>
+        <attr name="emptyImage" format="reference"/>
+        <attr name="networkErrorText" format="reference"/>
+        <attr name="networkErrorIcon" format="reference"/>
+        <attr name="loadingText" format="reference|string"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="viewType">
+            <enum name="empty" value="0"/>
+            <enum name="loading" value="1"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

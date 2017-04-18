@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/UIWidget.iml" filepath="$PROJECT_DIR$/UIWidget.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/widget-design/widget-design.iml" filepath="$PROJECT_DIR$/widget-design/widget-design.iml" />
+      <module fileurl="file://$PROJECT_DIR$/widget-comm/widget-comm.iml" filepath="$PROJECT_DIR$/widget-comm/widget-comm.iml" />
       <module fileurl="file://$PROJECT_DIR$/widget-dialog/widget-dialog.iml" filepath="$PROJECT_DIR$/widget-dialog/widget-dialog.iml" />
     </modules>
   </component>

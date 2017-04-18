@@ -1,7 +1,8 @@
 uploadArchives {
     apply plugin: 'maven'
+
     repositories.mavenDeployer {
-        repository(url: 'http://localhost:8081/repository/maven-rae/') {
+        repository(url: 'http://maven.raeblog.com:8081/repository/maven-rae/') {
             authentication(userName: 'rae', password: '123456')
         }
         pom.project {

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.rae.widget.RaeFragmentLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_dialog_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="默认弹窗"/>
+
+        <Button
+            android:id="@+id/btn_dialog_default_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="一个按钮的弹窗"/>
+
+        <Button
+            android:id="@+id/btn_dialog_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="点击不取消的 加载中"/>
+
+        <Button
+            android:id="@+id/btn_dialog_media"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="媒体选择"/>
+
+        <Button
+            android:id="@+id/btn_dialog_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="列表选择"/>
+
+
+    </LinearLayout>
+</com.rae.widget.RaeFragmentLayout>

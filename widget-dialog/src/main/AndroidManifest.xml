@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-          package="com.raeblog.widget.dialog"
+          package="com.rae.widget.dialog"
     >
 
     <application

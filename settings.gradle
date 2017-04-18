@@ -1,1 +1,1 @@
-include ':app', ':widget-dialog', ':widget-design'
+include ':app', ':widget-dialog', ':widget-comm'//, ':widget-dialog', ':widget-design'

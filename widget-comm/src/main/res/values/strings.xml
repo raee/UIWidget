@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">widget-comm</string>
+    <string name="rae_loading">正在加载...</string>
+    <string name="rae_empty">这里什么都没有哦</string>
+    <string name="rae_retry">点击重试</string>
+    <string name="rae_network_error">网络似乎发生了一点小问题</string>
+</resources>
