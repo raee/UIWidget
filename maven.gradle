@@ -1,9 +1,14 @@
 uploadArchives {
     apply plugin: 'maven'
 
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newInputStream())
+    def userName = properties.getProperty('maven.username')
+    def password = properties.getProperty('maven.password');
+
     repositories.mavenDeployer {
         repository(url: 'http://maven.raeblog.com:8081/repository/maven-rae/') {
-            authentication(userName: 'rae', password: '123456')
+            authentication(userName: userName, password: password)
         }
         pom.project {
             version '1.0.0'

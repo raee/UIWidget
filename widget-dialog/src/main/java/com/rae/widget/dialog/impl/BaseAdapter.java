@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.rae.widget.dialog.IDialogItemClickListener;
+
 import java.util.List;
 
 /**
@@ -14,17 +16,14 @@ import java.util.List;
  */
 abstract class BaseAdapter<T, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
 
-    public interface onItemClickListener<T> {
-        void onItemClick(View view, T item, int position);
-    }
 
     protected List<T> mDataList;
     private LayoutInflater mLayoutInflater;
     protected Context mContext;
 
-    private onItemClickListener<T> mOnItemClickListener;
+    private IDialogItemClickListener<T> mOnItemClickListener;
 
-    public void setOnItemClickListener(onItemClickListener<T> listener) {
+    public void setOnItemClickListener(IDialogItemClickListener<T> listener) {
         mOnItemClickListener = listener;
     }
 

@@ -16,6 +16,11 @@ allprojects {
     }
 }
 
+ext {
+    userName = 'rae'
+    password = '123456'
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

@@ -68,7 +68,7 @@
                 app:selectedTextSize="15sp"
                 app:unitHeight="50dp"/>
 
-            <com.raeblog.gifted.widget.ScrollerNumberPicker
+            <com.rae.widget.ScrollerNumberPicker
                 android:id="@+id/snp_city"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -83,7 +83,7 @@
                 app:selectedTextSize="15sp"
                 app:unitHeight="50dp"/>
 
-            <com.raeblog.gifted.widget.ScrollerNumberPicker
+            <com.rae.widget.ScrollerNumberPicker
                 android:id="@+id/snp_areas"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

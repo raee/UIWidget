@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.rae.widget.dialog.IDialogItemClickListener;
 import com.rae.widget.dialog.R;
 import com.rae.widget.dialog.model.FilterParamsBean;
 
@@ -17,12 +18,12 @@ import java.util.List;
  * 单栏筛选
  * Created by ChenRui on 2017/3/30 0030 23:45.
  */
-public class SingleFilterDialog extends AppPopupWindow implements BaseAdapter.onItemClickListener<FilterParamsBean> {
+public class SingleFilterDialog extends AppPopupWindow implements IDialogItemClickListener<FilterParamsBean> {
 
     private final FilterAdapter mAdapter;
 
     RecyclerView mRecyclerView;
-    private BaseAdapter.onItemClickListener<FilterParamsBean> mItemClickListener;
+    private IDialogItemClickListener<FilterParamsBean> mItemClickListener;
 
     public SingleFilterDialog(Context context) {
         super(context);
@@ -39,7 +40,7 @@ public class SingleFilterDialog extends AppPopupWindow implements BaseAdapter.on
         mAdapter.notifyDataSetChanged();
     }
 
-    public void setOnItemClickListener(BaseAdapter.onItemClickListener<FilterParamsBean> listener) {
+    public void setOnItemClickListener(IDialogItemClickListener<FilterParamsBean> listener) {
         mItemClickListener = listener;
     }
 

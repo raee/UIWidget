@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.rae.widget.dialog.IDialogItemClickListener;
 import com.rae.widget.dialog.R;
 import com.rae.widget.dialog.model.DoubleFilterBean;
 import com.rae.widget.dialog.model.FilterParamsBean;
@@ -17,7 +18,7 @@ import java.util.List;
  * 双栏筛选
  * Created by ChenRui on 2017/3/30 0030 23:45.
  */
-public class DoubleFilterDialog extends AppPopupWindow implements BaseAdapter.onItemClickListener<FilterParamsBean> {
+public class DoubleFilterDialog extends AppPopupWindow implements IDialogItemClickListener<FilterParamsBean> {
     private final FilterAdapter mLeftAdapter;
     private final FilterAdapter mRightAdapter;
 
@@ -25,7 +26,7 @@ public class DoubleFilterDialog extends AppPopupWindow implements BaseAdapter.on
 
     RecyclerView mRightRecyclerView;
 
-    private BaseAdapter.onItemClickListener<FilterParamsBean> mItemClickListener;
+    private IDialogItemClickListener<FilterParamsBean> mItemClickListener;
     private int mLeftIndex = 0;
     private int mRightIndex = 0;
     private List<DoubleFilterBean> mDataList;
@@ -39,7 +40,7 @@ public class DoubleFilterDialog extends AppPopupWindow implements BaseAdapter.on
         mLeftAdapter = new FilterAdapter();
         mLeftRecyclerView.setAdapter(mLeftAdapter);
         mLeftAdapter.setDisableSelectedView(true);
-        mLeftAdapter.setOnItemClickListener(new BaseAdapter.onItemClickListener<FilterParamsBean>() {
+        mLeftAdapter.setOnItemClickListener(new IDialogItemClickListener<FilterParamsBean>() {
             @Override
             public void onItemClick(View view, FilterParamsBean item, int position) {
                 // 联动选择
@@ -71,10 +72,9 @@ public class DoubleFilterDialog extends AppPopupWindow implements BaseAdapter.on
         mRightAdapter.notifyDataSetChanged();
     }
 
-    public void setOnItemClickListener(BaseAdapter.onItemClickListener<FilterParamsBean> listener) {
+    public void setOnItemClickListener(IDialogItemClickListener<FilterParamsBean> listener) {
         mItemClickListener = listener;
     }
-
 
     @Override
     public void onItemClick(View view, FilterParamsBean item, int position) {
