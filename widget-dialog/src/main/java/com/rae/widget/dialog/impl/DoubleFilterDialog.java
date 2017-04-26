@@ -84,4 +84,12 @@ public class DoubleFilterDialog extends AppPopupWindow implements IDialogItemCli
         }
     }
 
+    public void setLeftSelectedItem(int position){
+        mLeftAdapter.setSelectedItem(position);
+    }
+
+    public void setRightSelectedItem(int position){
+        mRightAdapter.setSelectedItem(position);
+    }
+
 }

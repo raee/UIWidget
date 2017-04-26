@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
-apply from: '../maven.gradle'
-
-uploadArchives.repositories.mavenDeployer.pom.project {
-    version '1.0.0'
-    artifactId 'comm'
-    groupId 'com.rae.widget'
-}
+//apply from: '../maven.gradle'
+//
+//uploadArchives.repositories.mavenDeployer.pom.project {
+//    version '1.0.0'
+//    artifactId 'comm'
+//    groupId 'com.rae.widget'
+//}
 
 android {
     compileSdkVersion 25

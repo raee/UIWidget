@@ -17,6 +17,7 @@ class FilterAdapter extends BaseAdapter<FilterParamsBean, FilterHolder> {
     private FilterParamsBean mSelectedItem;
     private int mIsGridLayoutCount;
     private boolean mDisableSelectedView;
+    private int mSelectedItemPosition;
 
     public void setSubMenu(boolean subMenu) {
         isSubMenu = subMenu;
@@ -40,7 +41,7 @@ class FilterAdapter extends BaseAdapter<FilterParamsBean, FilterHolder> {
             holder.getDividerView().setVisibility(View.GONE);
         }
 
-        holder.itemView.setSelected(m == mSelectedItem);
+        holder.itemView.setSelected(m == mSelectedItem || mSelectedItemPosition == position);
         if (mDisableSelectedView) {
             holder.getSelectedView().setVisibility(View.GONE);
         } else {
@@ -61,5 +62,9 @@ class FilterAdapter extends BaseAdapter<FilterParamsBean, FilterHolder> {
 
     public void setDisableSelectedView(boolean disableSelectedView) {
         mDisableSelectedView = disableSelectedView;
+    }
+
+    public void setSelectedItem(int position) {
+        mSelectedItemPosition = position;
     }
 }
