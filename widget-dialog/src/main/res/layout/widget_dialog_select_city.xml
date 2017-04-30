@@ -20,7 +20,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:background="@drawable/widget_dialog_public_divider_while_primary">
+            android:background="@drawable/widget_dialog_public_divider_while_bg">
 
             <TextView
                 android:id="@+id/tv_province_close"

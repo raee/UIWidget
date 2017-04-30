@@ -14,7 +14,7 @@
 
             <!--分割线颜色-->
             <item>
-                <color android:color="?attr/colorPrimary"/>
+                <color android:color="#ebebeb"/>
             </item>
 
             <item android:bottom="0.5dp">

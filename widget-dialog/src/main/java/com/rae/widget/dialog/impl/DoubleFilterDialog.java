@@ -3,6 +3,7 @@ package com.rae.widget.dialog.impl;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -79,17 +80,47 @@ public class DoubleFilterDialog extends AppPopupWindow implements IDialogItemCli
     @Override
     public void onItemClick(View view, FilterParamsBean item, int position) {
         dismiss();
+
+        // 找到左边的
+        int itemCount = mLeftAdapter.getItemCount();
+        for (int i = 0; i < itemCount; i++) {
+            FilterParamsBean dataItem = mLeftAdapter.getDataItem(i);
+            if (TextUtils.equals(dataItem.getId(), item.getPid())) {
+                mLeftAdapter.setSelectedItem(dataItem);
+                break;
+            }
+        }
+        mLeftAdapter.notifyDataSetChanged();
+
+
         if (mItemClickListener != null) {
             mItemClickListener.onItemClick(view, item, position);
         }
     }
 
-    public void setLeftSelectedItem(int position){
+    public void setLeftSelectedItem(int position) {
         mLeftAdapter.setSelectedItem(position);
     }
 
-    public void setRightSelectedItem(int position){
+    public void setLeftSelectedItem(FilterParamsBean item) {
+        mLeftAdapter.setSelectedItem(item);
+    }
+
+    public void setRightSelectedItem(int position) {
         mRightAdapter.setSelectedItem(position);
+    }
+
+    public void setRightSelectedItem(FilterParamsBean item) {
+        mRightAdapter.setSelectedItem(item);
+    }
+
+
+    public FilterParamsBean getRightSelectedItem() {
+        return mRightAdapter.getSelectedItem();
+    }
+
+    public FilterParamsBean getLeftSelectedItem() {
+        return mLeftAdapter.getSelectedItem();
     }
 
 }
