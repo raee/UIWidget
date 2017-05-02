@@ -60,4 +60,13 @@ public class SingleFilterDialog extends AppPopupWindow implements IDialogItemCli
         mRecyclerView.setLayoutManager(new GridLayoutManager(mRecyclerView.getContext(), count));
         mAdapter.setGridLayoutCount(count);
     }
+
+    public void setSelectedItem(FilterParamsBean item) {
+        mAdapter.setSelectedItem(item);
+    }
+
+
+    public FilterParamsBean getSelectedItem() {
+        return mAdapter.getSelectedItem();
+    }
 }
