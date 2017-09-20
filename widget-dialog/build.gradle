@@ -35,7 +35,7 @@ uploadArchives {
             authentication(userName: userName, password: password)
         }
         pom.project {
-            version '1.0.0'
+            version '1.0.1'
             artifactId 'dialog'
             groupId 'com.rae.widget'
             packaging 'aar'
