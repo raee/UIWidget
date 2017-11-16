@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v4.content.CursorLoader;
+import android.support.v4.content.FileProvider;
 import android.view.View;
 
 import com.rae.widget.dialog.R;
@@ -157,7 +158,10 @@ public class MediaSelectionDialog extends SelectionDialog {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            return Uri.fromFile(file);
+
+            // 支持Android7.0
+            return FileProvider.getUriForFile(mContext, mContext.getPackageName() + ".provider", file);
+//            return Uri.fromFile(file);
         } catch (Exception e) {
             e.printStackTrace();
         }
