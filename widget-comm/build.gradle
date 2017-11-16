@@ -1,19 +1,22 @@
 apply plugin: 'com.android.library'
-//apply from: '../maven.gradle'
-//
-//uploadArchives.repositories.mavenDeployer.pom.project {
-//    version '1.0.0'
-//    artifactId 'comm'
-//    groupId 'com.rae.widget'
-//}
+apply from: '../maven.gradle'
+
+uploadArchives.repositories.mavenDeployer.pom.project {
+    version '1.0.1'
+    artifactId 'comm'
+    groupId 'com.rae.widget'
+}
+Properties p = new Properties()
+p.load(new FileInputStream('local.properties'))
+def supportVersion = p.hasProperty('supportVersion') ? p.getProperty('supportVersion') : '25.2.0'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.1"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
 
@@ -33,8 +36,8 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile "com.android.support:appcompat-v7:${rootProject.ext.supportVersion}"
     testCompile 'junit:junit:4.12'
     compile 'in.srain.cube:ultra-ptr:1.0.11'
-    compile 'com.android.support:design:25.2.0'
+    compile "com.android.support:design:${rootProject.ext.supportVersion}"
 }

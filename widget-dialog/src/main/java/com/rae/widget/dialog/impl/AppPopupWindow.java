@@ -52,6 +52,10 @@ public abstract class AppPopupWindow extends PopupWindow {
         toggleFilterAnim();
     }
 
+    public void setElevation(float value) {
+        mAlphaView.setAlpha(value);
+    }
+
     @Override
     public void setContentView(View contentView) {
         FrameLayout view = new FrameLayout(mContext);

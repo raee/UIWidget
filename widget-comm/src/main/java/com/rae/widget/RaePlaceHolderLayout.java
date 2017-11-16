@@ -59,14 +59,16 @@ public class RaePlaceHolderLayout extends FrameLayout {
 
     private void init() {
         mPlaceHolderView = LayoutInflater.from(getContext()).inflate(R.layout.rae_place_holder_layout, this, false);
-        mTitleView = (TextView) mPlaceHolderView.findViewById(R.id.tv_empty_view_text);
-        mIconView = (ImageView) mPlaceHolderView.findViewById(R.id.img_empty_view);
+        mTitleView = mPlaceHolderView.findViewById(R.id.tv_empty_view_text);
+        mIconView = mPlaceHolderView.findViewById(R.id.img_empty_view);
         mEmptyView = mPlaceHolderView.findViewById(R.id.layout_empty_view);
         mLoadingView = mPlaceHolderView.findViewById(R.id.layout_empty_loading);
-        mLoadingTextView = (TextView) mPlaceHolderView.findViewById(R.id.tv_empty_loading_text);
-        mRetryView = (TextView) mPlaceHolderView.findViewById(R.id.tv_empty_view_retry);
-        mSubTitleView = (TextView) mPlaceHolderView.findViewById(R.id.tv_empty_view_sub_text);
+        mLoadingTextView = mPlaceHolderView.findViewById(R.id.tv_empty_loading_text);
+        mRetryView = mPlaceHolderView.findViewById(R.id.tv_empty_view_retry);
+        mSubTitleView = mPlaceHolderView.findViewById(R.id.tv_empty_view_sub_text);
         setViewType(1);
+        if (getBackground() != null)
+            mPlaceHolderView.setBackgroundDrawable(getBackground());
     }
 
     private void initAttrs(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -98,6 +100,8 @@ public class RaePlaceHolderLayout extends FrameLayout {
                 mNetWorkErrorIcon = a.getDrawable(attr);
             } else if (attr == R.styleable.RaePlaceHolderLayout_networkErrorText) {
                 mNetWorkErrorText = a.getText(attr);
+            } else if (attr == R.styleable.RaePlaceHolderLayout_background) {
+//                mPlaceHolderView.setBackgroundDrawable(a.getDrawable(attr));
             }
         }
         a.recycle();

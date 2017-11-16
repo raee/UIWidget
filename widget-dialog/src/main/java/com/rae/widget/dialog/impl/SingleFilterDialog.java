@@ -35,6 +35,10 @@ public class SingleFilterDialog extends AppPopupWindow implements IDialogItemCli
         mAdapter.setOnItemClickListener(this);
     }
 
+    public FilterAdapter getAdapter() {
+        return mAdapter;
+    }
+
     public void notifyDataSetChange(List<FilterParamsBean> data) {
         mAdapter.invalidate(data);
         mAdapter.notifyDataSetChanged();

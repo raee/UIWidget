@@ -39,14 +39,14 @@ public interface IAppDialog {
      *
      * @param title 标题文本
      */
-    void setTitle(String title);
+    void setTitle(CharSequence title);
 
     /**
      * 设置提示文本
      *
      * @param message 文本信息
      */
-    void setMessage(String message);
+    void setMessage(CharSequence message);
 
 
     /**
@@ -93,9 +93,16 @@ public interface IAppDialog {
 
 
     /**
-     * 取消监听
+     * 消失监听
      *
      * @param listener
      */
     void setOnDismissListener(DialogInterface.OnDismissListener listener);
+
+    /**
+     * 设置取消监听
+     *
+     * @param listener
+     */
+    void setOnCancelListener(DialogInterface.OnCancelListener listener);
 }

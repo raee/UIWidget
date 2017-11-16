@@ -33,7 +33,12 @@ public class WidgetDialogDemoActivity extends AppCompatActivity {
     @OnClick(R.id.btn_dialog_default)
     void onDefaultDialogClick() {
         new DialogBuilder(this)
-                .setMessage("默认对话框演示")
+                .setMessage("style=”@android:style/Widget.SeekBar” 指定seekbar的样式\n" +
+                        "android:max=”200” 指定seekbar的最大值为200，默认是100\n" +
+                        "android:progress=”75”指定seekbar的当前值为75\n" +
+                        "android:thumb 设置seekbar的滑动块样式\n" +
+                        "android:progressDrawable 设置seekbar的进度条的样式 \n" +
+                        "其中指定seekbar的当前值，我们也可以通过代码设置，如：seekBar.setProgress(75);")
                 .positiveButtonText("点我确定")
                 .positiveButtonClickListener(new IAppDialogClickListener() {
                     @Override

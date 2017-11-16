@@ -20,8 +20,8 @@ public class PlaceHolderActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_holder);
-        final RaePlaceHolderLayout layout = (RaePlaceHolderLayout) findViewById(R.id.layout_content);
-        listView = (ListView) findViewById(R.id.lv_demo);
+        final RaePlaceHolderLayout layout = findViewById(R.id.layout_content);
+        listView = findViewById(R.id.lv_demo);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.widget_dialog_item_filter, R.id.tv_name);
         adapter.add("123");
@@ -38,12 +38,12 @@ public class PlaceHolderActivity extends AppCompatActivity {
             }
         });
 
-        listView.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                layout.onNetWorkError();
-            }
-        }, 1000);
+//        listView.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+////                layout.onNetWorkError();
+//            }
+//        }, 1000);
     }
 
     public void onClick(View view) {

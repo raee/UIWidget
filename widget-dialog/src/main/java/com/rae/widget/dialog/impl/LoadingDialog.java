@@ -31,18 +31,18 @@ public class LoadingDialog extends AppDialog {
             window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); // 设置透明
         }
         setContentView(R.layout.widget_dialog_loading);
-        mLoadingTextView = (TextView) findViewById(R.id.tv_view_loading_title);
+        mLoadingTextView = findViewById(R.id.tv_view_loading_title);
         super.initDialog();
     }
 
     @Override
-    public void setTitle(String title) {
+    public void setTitle(CharSequence title) {
         mLoadingTextView.setVisibility(View.VISIBLE);
         mLoadingTextView.setText(title);
     }
 
     @Override
-    public void setMessage(String message) {
+    public void setMessage(CharSequence message) {
         setTitle(message);
     }
 }

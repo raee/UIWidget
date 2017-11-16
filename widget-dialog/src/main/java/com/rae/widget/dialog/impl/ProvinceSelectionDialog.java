@@ -49,10 +49,10 @@ public class ProvinceSelectionDialog extends SlideDialog {
         super(context);
         mProvinceDataList = data;
 
-        setContentView(R.layout.widget_dialog_select_city);
-        mProvinceView = (ScrollerNumberPicker) findViewById(R.id.snp_province);
-        mCityView = (ScrollerNumberPicker) findViewById(R.id.snp_city);
-        mAreasView = (ScrollerNumberPicker) findViewById(R.id.snp_areas);
+        setContentView(getLayoutId());
+        mProvinceView = findViewById(R.id.snp_province);
+        mCityView = findViewById(R.id.snp_city);
+        mAreasView = findViewById(R.id.snp_areas);
 
 
         // 关闭
@@ -121,6 +121,10 @@ public class ProvinceSelectionDialog extends SlideDialog {
         });
 
         load();
+    }
+
+    protected int getLayoutId() {
+        return R.layout.widget_dialog_select_city;
     }
 
     private void notifyDismiss() {

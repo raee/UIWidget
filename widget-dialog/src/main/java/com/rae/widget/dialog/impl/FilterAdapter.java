@@ -18,14 +18,19 @@ class FilterAdapter extends BaseAdapter<FilterParamsBean, FilterHolder> {
     private int mIsGridLayoutCount;
     private boolean mDisableSelectedView;
     private int mSelectedItemPosition = -1;
+    private int mLayoutId = R.layout.widget_dialog_item_filter;
 
     public void setSubMenu(boolean subMenu) {
         isSubMenu = subMenu;
     }
 
+    public void setLayoutId(int layoutId) {
+        mLayoutId = layoutId;
+    }
+
     @Override
     public FilterHolder onCreateViewHolder(LayoutInflater inflater, ViewGroup parent, int viewType) {
-        return new FilterHolder(inflateView(parent, R.layout.widget_dialog_item_filter));
+        return new FilterHolder(inflateView(parent, mLayoutId));
     }
 
     @Override
@@ -41,7 +46,9 @@ class FilterAdapter extends BaseAdapter<FilterParamsBean, FilterHolder> {
             holder.getDividerView().setVisibility(View.GONE);
         }
 
-        holder.itemView.setSelected(m.equals(mSelectedItem) || mSelectedItemPosition == position);
+        boolean isSelected = m.equals(mSelectedItem) || mSelectedItemPosition == position;
+        holder.itemView.setSelected(isSelected);
+        holder.getNameView().setSelected(isSelected);
         if (mDisableSelectedView) {
             holder.getSelectedView().setVisibility(View.GONE);
         } else {

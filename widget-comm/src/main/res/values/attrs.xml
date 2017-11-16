@@ -5,6 +5,7 @@
     <declare-styleable name="RaePlaceHolderLayout">
         <attr name="emptyText" format="string|reference"/>
         <attr name="emptyTextColor" format="color"/>
+        <attr name="background" format="reference"/>
         <!--二级标题-->
         <attr name="subText" format="string|reference"/>
         <!--引导按钮文字-->

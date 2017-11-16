@@ -35,12 +35,12 @@ public abstract class AppDialog extends Dialog implements IAppDialog {
     }
 
     @Override
-    public void setTitle(String title) {
+    public void setTitle(CharSequence title) {
 
     }
 
     @Override
-    public void setMessage(String message) {
+    public void setMessage(CharSequence message) {
 
     }
 
@@ -101,7 +101,7 @@ public abstract class AppDialog extends Dialog implements IAppDialog {
     /**
      * 设置取消文本
      */
-    public void setCancelText(String text) {
+    public void setCancelText(CharSequence text) {
 
     }
 
@@ -110,7 +110,7 @@ public abstract class AppDialog extends Dialog implements IAppDialog {
      *
      * @param text
      */
-    public void setEnSureText(String text) {
+    public void setEnSureText(CharSequence text) {
     }
 
     /**
