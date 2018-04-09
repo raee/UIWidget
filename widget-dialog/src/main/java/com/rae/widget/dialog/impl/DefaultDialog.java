@@ -59,15 +59,7 @@ public class DefaultDialog extends AppDialog {
      */
     protected void initWindowAttr(Window window) {
         if (window == null) return;
-
         window.requestFeature(Window.FEATURE_NO_TITLE);
-        WindowManager.LayoutParams lp = window.getAttributes();
-        window.setGravity(Gravity.CENTER | Gravity.START | Gravity.END);
-        lp.width = ViewGroup.LayoutParams.MATCH_PARENT;
-        lp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-        window.setAttributes(lp);
-
-
         int margin = (int) getContext().getResources().getDimension(R.dimen.widget_dialog_default_margin);
         InsetDrawable drawable = new InsetDrawable(new ColorDrawable(Color.TRANSPARENT), margin, 0, margin, 0);
         window.setBackgroundDrawable(drawable);
@@ -76,11 +68,25 @@ public class DefaultDialog extends AppDialog {
     @Override
     public void show() {
         super.show();
+        requestWindowAttr();
         if (enableAnim) {
             Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.widget_dialog_scale_in);
             mContentView.startAnimation(anim);
         }
+    }
 
+    public void setEnableAnim(boolean enableAnim) {
+        this.enableAnim = enableAnim;
+    }
+
+    protected void requestWindowAttr() {
+        Window window = getWindow();
+        if (window == null) return;
+        WindowManager.LayoutParams lp = window.getAttributes();
+        window.setGravity(Gravity.CENTER | Gravity.START | Gravity.END);
+        lp.width = ViewGroup.LayoutParams.MATCH_PARENT;
+        lp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        window.setAttributes(lp);
     }
 
     @Override

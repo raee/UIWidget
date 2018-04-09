@@ -1,2 +1,2 @@
-//include ':app'
+//include ':app' ':widget-dialog' //, ':widget-comm'//, ':widget-dialog', ':widget-design'
 include ':widget-dialog' //, ':widget-comm'//, ':widget-dialog', ':widget-design'

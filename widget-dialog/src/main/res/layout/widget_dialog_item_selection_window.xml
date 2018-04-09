@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="#F8F8F8"
-              android:orientation="vertical">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?attr/widget_dialog_selection_style"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8"
+    android:orientation="vertical">
 
     <View
         android:id="@+id/view_item_selection_span"
         android:layout_width="match_parent"
-        android:layout_height="5dp"
+        android:layout_height="@dimen/widget_dialog_selection_divider_height"
         android:visibility="gone"/>
 
     <TextView
         android:id="@+id/tv_selection_window_title"
+        style="?attr/widget_dialog_selection_text_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/widget_dialog_public_divider_while_bg"

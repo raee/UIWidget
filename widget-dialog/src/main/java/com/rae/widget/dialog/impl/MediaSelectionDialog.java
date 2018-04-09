@@ -73,6 +73,7 @@ public class MediaSelectionDialog extends SelectionDialog {
             data.add(new SelectionInfo(mContext.getString(R.string.widget_dialog_video)));
         }
         data.add(new SelectionInfo(mContext.getString(R.string.widget_dialog_select_from_gallery)));
+        setCancelable(true);
         setDataList(data);
     }
 
@@ -98,10 +99,6 @@ public class MediaSelectionDialog extends SelectionDialog {
 
     /**
      * 处理回调结果
-     *
-     * @param requestCode
-     * @param resultCode
-     * @param data
      */
     public void handleIntent(int requestCode, int resultCode, Intent data) {
         if (mMediaSelectionListener == null || resultCode != Activity.RESULT_OK)
@@ -152,7 +149,7 @@ public class MediaSelectionDialog extends SelectionDialog {
 
     private Uri createTempFile(int type) {
         try {
-            String fileName = String.valueOf(("sph_image_" + System.currentTimeMillis()).hashCode());
+            String fileName = String.valueOf(("rae_image_" + System.currentTimeMillis()).hashCode());
             fileName += type == TYPE_VIDEO ? ".mp4" : ".jpg";
             File file = new File(mContext.getExternalCacheDir(), fileName);
             if (!file.exists()) {

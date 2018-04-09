@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="widget_dialog_selection_divider_height">5dp</dimen>
+</resources>

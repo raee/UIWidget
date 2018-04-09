@@ -1,6 +1,7 @@
 package com.rae.widget.dialog.impl;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -116,11 +117,10 @@ public class SelectionDialog extends SlideDialog {
     }
 
     public void setDataList(List<SelectionInfo> data) {
-        if (mCancelInfo == null) {
-            mCancelInfo = new SelectionInfo("取消", "app.dialog.cancel()");
+        if (mCancelInfo == null && mCancelable) {
+            mCancelInfo = new SelectionInfo(getContext().getString(R.string.widget_dialog_cancel), "app.dialog.cancel()");
             mCancelInfo.color = "#555555";
         }
-        mCancelable = true;
         SelectionWindowAdapter adapter = new SelectionWindowAdapter(data);
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(adapter);
@@ -133,7 +133,7 @@ public class SelectionDialog extends SlideDialog {
     }
 
     public boolean currentItemIsCancel() {
-        return getCurrentItem() != null && getCurrentItem().title.equalsIgnoreCase("取消");
+        return getCurrentItem() != null && getCurrentItem().title.equalsIgnoreCase(getContext().getString(R.string.widget_dialog_cancel));
     }
 
 
@@ -148,13 +148,13 @@ public class SelectionDialog extends SlideDialog {
 
     @Override
     public void setCancelable(boolean flag) {
-//        super.setCancelable(flag);
         mCancelable = flag;
     }
 
     private class SelectionWindowAdapter extends BaseAdapter implements AdapterView.OnItemClickListener {
 
         private final List<SelectionInfo> mDataList;
+        private ColorStateList mColorStateList;
 
         public SelectionWindowAdapter(List<SelectionInfo> data) {
             this.mDataList = data;
@@ -186,14 +186,19 @@ public class SelectionDialog extends SlideDialog {
             if (view == null) {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.widget_dialog_item_selection_window, viewGroup, false);
             }
-            TextView titleView = (TextView) view.findViewById(R.id.tv_selection_window_title);
+            TextView titleView = view.findViewById(R.id.tv_selection_window_title);
             titleView.setText(item.title);
             View spanView = view.findViewById(R.id.view_item_selection_span);
 
             if (!TextUtils.isEmpty(item.color)) {
                 titleView.setTextColor(Color.parseColor(item.color));
             } else {
-                titleView.setTextColor(Color.BLACK);
+
+                if (mColorStateList == null) {
+                    mColorStateList = titleView.getTextColors();
+                }
+                // 设置默认的颜色
+                titleView.setTextColor(mColorStateList);
             }
             if (item.imageResId > 0) {
                 titleView.setCompoundDrawablesWithIntrinsicBounds(item.imageResId, 0, 0, 0);

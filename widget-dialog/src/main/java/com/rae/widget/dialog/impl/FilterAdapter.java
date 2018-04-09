@@ -36,9 +36,19 @@ class FilterAdapter extends BaseAdapter<FilterParamsBean, FilterHolder> {
     @Override
     public void onBindViewHolder(FilterHolder holder, int position, FilterParamsBean m) {
         holder.getNameView().setText(m.getName());
+
+        // 背景颜色
+        int backgroundResId;
+        // 是否为最后一个
+        boolean isLastItem = position == getItemCount() - 1;
+
         if (isSubMenu) {
-            holder.itemView.setBackgroundResource(R.drawable.widget_dialog_bg_divider_filter_item);
+            backgroundResId = isLastItem ? R.drawable.widget_dialog_bg_filter_item : R.drawable.widget_dialog_bg_divider_filter_item;
+        } else {
+            backgroundResId = isLastItem ? R.drawable.widget_dialog_public_bg : R.drawable.widget_dialog_public_divider_bg;
         }
+
+        holder.itemView.setBackgroundResource(backgroundResId);
 
         if (mIsGridLayoutCount > 0) {
             holder.getDividerView().setVisibility(View.VISIBLE);

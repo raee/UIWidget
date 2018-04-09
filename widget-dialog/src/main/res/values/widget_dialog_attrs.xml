@@ -14,4 +14,7 @@
         <attr name="isEnable" format="boolean"/>
     </declare-styleable>
 
+    <attr name="widget_dialog_selection_style" format="reference"/>
+    <attr name="widget_dialog_selection_text_style" format="reference"/>
+
 </resources>

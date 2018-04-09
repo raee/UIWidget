@@ -20,21 +20,19 @@ import java.util.List;
  * Created by ChenRui on 2017/3/30 0030 23:45.
  */
 public class DoubleFilterDialog extends AppPopupWindow implements IDialogItemClickListener<FilterParamsBean> {
-    private final FilterAdapter mLeftAdapter;
-    private final FilterAdapter mRightAdapter;
+    protected final FilterAdapter mLeftAdapter;
+    protected final FilterAdapter mRightAdapter;
+    protected RecyclerView mLeftRecyclerView;
+    protected RecyclerView mRightRecyclerView;
+    protected int mLeftIndex = 0;
+    protected int mRightIndex = 0;
+    protected List<DoubleFilterBean> mDataList;
+    protected IDialogItemClickListener<FilterParamsBean> mItemClickListener;
 
-    RecyclerView mLeftRecyclerView;
-
-    RecyclerView mRightRecyclerView;
-
-    private IDialogItemClickListener<FilterParamsBean> mItemClickListener;
-    private int mLeftIndex = 0;
-    private int mRightIndex = 0;
-    private List<DoubleFilterBean> mDataList;
 
     public DoubleFilterDialog(Context context) {
         super(context);
-        setContentView(LayoutInflater.from(context).inflate(R.layout.widget_dialog_pw_double_filter, null));
+        setContentView(LayoutInflater.from(context).inflate(R.layout.widget_dialog_pw_double_filter, null, false));
 
         mLeftRecyclerView = (RecyclerView) findViewById(R.id.rec_filter_left);
         mLeftRecyclerView.setLayoutManager(new LinearLayoutManager(context));
