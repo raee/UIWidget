@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.RaeTabLayout
+        android:id="@+id/tab_category"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        app:tabBackground="@android:color/transparent"
+        app:tabIndicatorHeight="4dp"
+        app:tabIndicatorWidth="24dp"
+        app:tabMode="scrollable"
+        app:tabIndicatorRadius="4dp"
+        app:tabPaddingEnd="6dp"
+        app:tabPaddingStart="6dp">
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全部" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Java" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Oracle" />
+    </android.support.design.widget.RaeTabLayout>
+</LinearLayout>

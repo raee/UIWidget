@@ -1,2 +1,2 @@
 //include ':app' ':widget-dialog' //, ':widget-comm'//, ':widget-dialog', ':widget-design'
-include ':widget-dialog' //, ':widget-comm'//, ':widget-dialog', ':widget-design'
+include ':desigin-ext', ':app'//, ':widget-comm'//, ':widget-dialog', ':widget-design'

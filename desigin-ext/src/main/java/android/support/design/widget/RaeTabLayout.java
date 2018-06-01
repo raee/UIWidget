@@ -28,6 +28,7 @@ import android.database.DataSetObserver;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -332,7 +333,8 @@ public class RaeTabLayout extends HorizontalScrollView {
 
         // rae attrs
         TypedArray array = context.obtainStyledAttributes(attrs, android.support.design.widget.R.styleable.RaeTabLayout);
-        mTabStrip.setIndicatorWidth(array.getDimensionPixelSize(android.support.design.widget.R.styleable.RaeTabLayout_tabIndicatorWidth, 0));
+        setIndicatorWidth(array.getDimensionPixelSize(android.support.design.widget.R.styleable.RaeTabLayout_tabIndicatorWidth, 0));
+        setIndicatorRaduis(array.getDimensionPixelSize(android.support.design.widget.R.styleable.RaeTabLayout_tabIndicatorRadius, 0));
         array.recycle();
 
 
@@ -394,6 +396,13 @@ public class RaeTabLayout extends HorizontalScrollView {
      */
     public void setIndicatorWidth(int indicatorWidth) {
         mTabStrip.setIndicatorWidth(indicatorWidth);
+    }
+
+    /**
+     * 设置指示器圆弧
+     */
+    public void setIndicatorRaduis(int indicatorWidth) {
+        mTabStrip.setIndicatorRaduis(indicatorWidth);
     }
 
     /**
@@ -1844,6 +1853,7 @@ public class RaeTabLayout extends HorizontalScrollView {
 
         private ValueAnimator mIndicatorAnimator;
         private int mIndicatorWidth;
+        private int mIndicatorRaduis;
         private boolean mEnableIndicatorAnimate = true;
 
         SlidingTabStrip(Context context) {
@@ -1854,6 +1864,10 @@ public class RaeTabLayout extends HorizontalScrollView {
 
         public void setIndicatorWidth(int indicatorWidth) {
             mIndicatorWidth = indicatorWidth;
+        }
+
+        public void setIndicatorRaduis(int indicatorRaduis) {
+            mIndicatorRaduis = indicatorRaduis;
         }
 
         void setSelectedIndicatorColor(int color) {
@@ -2086,8 +2100,16 @@ public class RaeTabLayout extends HorizontalScrollView {
 
             // Thick colored underline below the current selection
             if (mIndicatorLeft >= 0 && mIndicatorRight > mIndicatorLeft) {
-                canvas.drawRect(mIndicatorLeft, getHeight() - mSelectedIndicatorHeight,
-                        mIndicatorRight, getHeight(), mSelectedIndicatorPaint);
+                int left = mIndicatorLeft;
+                int top = getHeight() - mSelectedIndicatorHeight;
+                int right = mIndicatorRight;
+                int bottom = getHeight();
+                int radius = mIndicatorRaduis;
+
+//                canvas.drawRect(left, top, right, bottom, mSelectedIndicatorPaint);
+
+                RectF roundRect = new RectF(left, top, right, bottom);// 设置个新的长方形
+                canvas.drawRoundRect(roundRect, radius, radius, mSelectedIndicatorPaint);
             }
         }
     }
