@@ -41,6 +41,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.annotation.StringRes;
 import android.support.design.R;
+import android.support.design.animation.AnimationUtils;
 import android.support.v4.util.Pools;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
@@ -300,7 +301,7 @@ public class RaeTabLayout extends HorizontalScrollView {
     public RaeTabLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        ThemeUtils.checkAppCompatTheme(context);
+
 
         // Disable the Scroll Bar
         setHorizontalScrollBarEnabled(false);
@@ -509,14 +510,14 @@ public class RaeTabLayout extends HorizontalScrollView {
 
     private void addTabFromItemView(@NonNull TabItem item) {
         final Tab tab = newTab();
-        if (item.mText != null) {
-            tab.setText(item.mText);
+        if (item.text != null) {
+            tab.setText(item.text);
         }
-        if (item.mIcon != null) {
-            tab.setIcon(item.mIcon);
+        if (item.icon != null) {
+            tab.setIcon(item.icon);
         }
-        if (item.mCustomLayout != 0) {
-            tab.setCustomView(item.mCustomLayout);
+        if (item.customLayout != 0) {
+            tab.setCustomView(item.customLayout);
         }
         if (!TextUtils.isEmpty(item.getContentDescription())) {
             tab.setContentDescription(item.getContentDescription());
